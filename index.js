@@ -1,37 +1,48 @@
-//Приймає масив чисел і повертає відсортований масив тільки з елементами що більше ніж середнє значення масива.
+// Рекурсія
 
-// function getSortedArrayAboveAvg(arr) {
-//     const avg = arr.reduce((sum, num) => sum + num, 0) / arr.length;
-//     const filteredArr = arr.filter(num => num > avg);
-//     filteredArr.sort((a, b) => a - b);
-//     return filteredArr;
-//   }
+// Реаліазація факторіала: 5! = 1 * 2 * 3 * 4* 5
+function factorial(n) {
+    if (n === 0) { // Умава виходу з рекурсії
+        return 1;
+    } else {
+        return n * factorial(n - 1); // рекурсивний виклик функції
+    }
+}
+// Аналогінча реалізація
+const factorial2 = n  => n === 0? 1 : n * factorial(n - 1)
 
-//   const sortedArr = getSortedArrayAboveAvg([3, 2, 5, 6, 1]);
+// Реалізація чтисел фібоначчі
+function fibonacci(n) {
+    if (n <= 1) {
+        return n; // Умава виходу з рекурсії
+    } else {
+        return fibonacci(n - 1) + fibonacci(n - 2); // рекурсивний виклик функції
+    }
+}
+// Аналогінча реалізація
+const fibonacci2 = n => n <= 1? n : fibonacci(n - 1) + fibonacci(n - 2)
 
-// function isPalindrome(str) {
-//     str = str.replace(/[\W_]/g, '');
-//     for (let i = 0; i < str.length / 2; i++) {
-//       const leftChar = str[i];
-//       const rightChar = str[str.length - 1 - i];
-//       if (leftChar !== rightChar && leftChar.toLowerCase() !== rightChar.toLowerCase()) {
-//         return false;
-//       }
-//     }
-//     return true;
-//   }
-  
-//   console.log(isPalindrome("Привіт Дмитро"));
+// Реалізація суми елементів масиву
+function sumArray(arr, i = 0, sum = 0) {
+    if (i >= arr.length) {
+        return sum; // Умава виходу з рекурсії
+    } else {
+        return sumArray(arr, i + 1, sum + arr[i]); // рекурсивний виклик функції
+    }
+}
 
-// function doubleNumber(num, count = 0) {
-//     if (num <= 0) {
-//       return [2 ** count, count];
-//     } else {
-//       return doubleNumber(num >> 1, count + 1);
-//     }
-//   }
-  
-//   const [result, count] = doubleNumber(7);
-//   console.log(result);
-//   console.log(count);
-  
+// Аналогічна реалізація
+const sumArray2 = (arr, i = 0, sum = 0) => i >= arr.length? sum : sumArray(arr, i + 1, sum + arr[i])
+
+// Аналогічна реалізація через for
+
+const sumArray3 = (arr) => {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+    return sum
+}
+
+// Аналогічна реалізація через reduce
+const sumArray4 = arr => arr.reduce((acc, item) => acc + item, 0)
