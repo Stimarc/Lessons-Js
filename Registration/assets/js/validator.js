@@ -25,13 +25,25 @@ class Validator {
     }
 
     chechLogin(loginValue) {
-        let regularExpression = /^[a-zA-Z0-9\_\-\.]{6,16}$/;
-         this._loginIsValid = regularExpression.test(loginValue);
+        let regularExpression = /^[a-zA-Z0-9_]{6,16}$/;
+        this._loginIsValid = regularExpression.test(loginValue);
+    }
 
-        if (regularExpression.test(loginValue)) {
-            this._loginIsValid = true;
-        } else {
-            this._loginIsValid = false;
-        }
+    chechPass1(pass1Value) {
+        let regularExpression = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9_]{8,}$/;
+        this._pass1IsValid = regularExpression.test(pass1Value);
+    }
+
+    chechPass2(pass1Value,pass2Value) {
+        this._pass2IsValid = (pass1Value === pass2Value);
+    }
+
+    chechEmail(emailValue) {
+        let regularExpression = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
+        this._emailIsValid = regularExpression.test(emailValue);
+    }
+
+    checkAll(){
+        return(this._loginIsValid && this._pass1IsValid && this._pass2IsValid && this._emailIsValid); 
     }
 }
