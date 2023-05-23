@@ -4,7 +4,10 @@ $(document).ready(() => {
     console.log('Gallery1/main.js -> Start');
     const controller = new Controller();
 
-    // Tests:
+    //2
     controller.activateNav();
+    controller.activateBack();
+    controller.activateMini();
+    controller.activateRotate();
 
 });
