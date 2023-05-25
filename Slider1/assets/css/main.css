@@ -44,11 +44,14 @@ h4{
     position: absolute;
     left: 0;
     top: 0;
+    display: none;
 }
 
 .arrow{
     width: 36px;
-    transition: transform 1s;
+    margin: 0px 15px -10px 15px;
+    transition: transform 0.5s;
+    display: none;
 }
 
 .arrow:hover{
