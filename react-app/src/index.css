@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  max-width: 500px;
+  margin: 50px auto;
+}
+
+.post {
+  padding: 10px;
+  border: 1px solid silver;
+  margin: 5px;
+}
+
+.btn {
+  padding: 10px;
+  border: 1px solid silver;
+}
+
+.btn-del{
+  background: tomato;
+  color: white;
+}
+
+.add-post {
+  padding: 20px;
+  border: 1px solid silver;
+  margin: 20px 5px;
+}
+.add-post-action{
+  display: flex;
+}
