@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import Post from "./components/Post";
+import Posts from "./components/Posts";
+import AddPost from "./components/AddPost";
+
 
 const App = () => {
   const [posts, setPosts] = useState([
@@ -10,9 +12,6 @@ const App = () => {
     {id: 5, title: 'Post 5', text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, porro!'},
   ]);
 
-  const title = 'My react app';
-
-  const ref = React.createRef();
 
   const delPost = (id) => {
     const newPosts = posts.filter(post => post.id !== id);
@@ -23,37 +22,11 @@ const App = () => {
     setPosts([...posts, objData]);
   }
 
-  const clickHandler = (e) => {
-    e.preventDefault();
-    const input =  ref.current;
-    const value = input.value;
-    addPost({
-      id: window.crypto.randomUUID(),
-      title: value,
-      text: 'some text ...'
-    });
-    input.value = '';
-  }
-
   return (
     <div className="container">
-      <h1>{ title }</h1>
-
-      <form className="add-post">
-        <h3 className="add-post-title">Add post</h3>
-        <div className="add-post-action">
-          <input type="text" ref={ref}/>
-          <button className="btn" onClick={clickHandler}>Add</button>
-        </div>
-      </form>
-
-      <h2>Posts</h2>
-      <div className="posts">
-        {
-          posts.map(post => <Post key={ post.id } data={ post } delPost={ delPost }/>)
-        }
-        
-      </div>
+      <h1>React app</h1>
+     <AddPost addPost={addPost}/>
+     <Posts posts={posts} delPost={delPost}/>
     </div>
   );
 }

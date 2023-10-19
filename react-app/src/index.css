@@ -11,6 +11,13 @@ body {
 li {
   list-style: none;
 }
+input,
+textarea {
+  display: block;
+  padding: 10px;
+  border: 1px solid silver;
+  width: 100%;
+}
 
 .container {
   max-width: 500px;
@@ -21,6 +28,20 @@ li {
   padding: 10px;
   border: 1px solid silver;
   margin: 5px;
+}
+.post__toggle-content-block{
+  margin-top: 10px;
+}
+.post__toggle-btn{
+  display: block;
+  border: none;
+  background: none;
+  margin-bottom: 10px;
+}
+
+.post__toggle-content {
+  padding: 10px;
+  border: 1px solid silver;
 }
 
 .btn {
